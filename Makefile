@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -O1 -g -Wall -Wextra
 
-#GIT_HOOKS := .git/hooks/applied
+GIT_HOOKS := .git/hooks/applied
 
 
 
