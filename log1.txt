@@ -1,0 +1,4 @@
+test1.c:16:9: runtime error: load of misaligned address 0x7fff51611ded for type 'uint64_t', which requires 8 byte alignment
+0x7fff51611ded: note: pointer points here
+ 00 ca c1 cf 49 27 6d  20 61 20 64 6f 67 2e 00  00 59 54 5b b0 73 54 2d  00 00 00 00 00 00 00 00  b3
+             ^ 
