@@ -15,6 +15,9 @@ $(GIT_HOOKS):
 		@scripts/install-git-hooks
 		@echo
 
+plot: output.txt
+		gnuplot scripts/runtime.gp
+
 q1: q1.c
 	$(CC) $(CFLAGS) q1.c -o q1
 
