@@ -4,7 +4,7 @@
 #include <string.h>
 int main()
 {
-    const char str[] = "I'm a dog.";
+    char str[] = "I'm a dog.";
     printf("str : %s\n", str);
     printf("str address : %p\n", str);
 
@@ -18,11 +18,11 @@ int main()
 
     /*** use memcpy to copy 8 bytes string at one time.***/
 
-    memcpy(payload_, s, 8);
+    // memcpy(payload_, s, 8);
 
     /*** not use memcpy to copy 8 bytes string at one time.***/
 
-    //*payload_ = *((uint64_t *) s);
+    *payload_ = *((uint64_t *) s);
 
     /*** not use memcpy to copy 8 bytes string one by one.***/
     /*

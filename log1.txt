@@ -1,4 +1,16 @@
-test1.c:16:9: runtime error: load of misaligned address 0x7fff51611ded for type 'uint64_t', which requires 8 byte alignment
-0x7fff51611ded: note: pointer points here
- 00 ca c1 cf 49 27 6d  20 61 20 64 6f 67 2e 00  00 59 54 5b b0 73 54 2d  00 00 00 00 00 00 00 00  b3
+q1_ext.c:15:5: runtime error: load of misaligned address 0x7ffe93a989ff for type 'uint64_t', which requires 8 byte alignment
+0x7ffe93a989ff: note: pointer points here
+ 60 5c 55 00 49  27 6d 20 61 20 64 6f 67  2e 00 53 68 65 20 69 73  20 61 20 70 69 67 2e 00  00 03 9d
+             ^ 
+q1_ext.c:25:17: runtime error: load of misaligned address 0x7ffe93a98a0a for type 'uint64_t', which requires 8 byte alignment
+0x7ffe93a98a0a: note: pointer points here
+ 6f 67  2e 00 53 68 65 20 69 73  20 61 20 70 69 67 2e 00  00 03 9d 9a ce e1 0d bf  20 8b a9 93 fe 7f
+              ^ 
+q1_ext.c:25:15: runtime error: store to misaligned address 0x7ffe93a989ff for type 'uint64_t', which requires 8 byte alignment
+0x7ffe93a989ff: note: pointer points here
+ 60 5c 55 00 49  27 6d 20 61 20 64 6f 67  2e 00 53 68 65 20 69 73  20 61 20 70 69 67 2e 00  00 03 9d
+             ^ 
+q1_ext.c:34:5: runtime error: load of misaligned address 0x7ffe93a989ff for type 'uint64_t', which requires 8 byte alignment
+0x7ffe93a989ff: note: pointer points here
+ 60 5c 55 00 53  68 65 20 69 73 20 61 67  2e 00 53 68 65 20 69 73  20 61 20 70 69 67 2e 00  00 03 9d
              ^ 
