@@ -1,39 +1,39 @@
-#include <assert.h>
-#include <stdbool.h>
-#include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
-bool is_ascii(const char str[], size_t size)
-{
-    if (size == 0)
-        return false;
-    int i = 0;
-    while ((i + 8) <=
-           size) {  // check 8 bytes (64-bits) at a time, if the rest of
-                    // bytes are smaller than 8 bytes, end while-loop.
-                    //   uint64_t payload;
-        //   memcpy(&payload, str + i, 8); // copy 8 bytes (64-bits) from str
-        uint64_t *payload = (uint64_t *) str;
-        if (*payload & 0x8080808080808080)
-            return false;
-        i += 8;  // previous 8 bytes (64-bits) have been checked, so move to the
-                 // address which is next to the previous 8 bytes.
-    }
-    while (i < size) {  // because the rest of bytes are insufficient to 8
-                        // bytes, check 1 bytes at a time.
-        if (str[i] & 0x80)
-            return false;
-        i++;
-    }
-
-    return true;
-}
 int main()
 {
-    char str[] = "I'm a dog.";
-    // char str[] = "I'm a dog. μ";
-    assert(is_ascii(str, sizeof(str)));
+    const char str[] = "I'm a dog.";
+    printf("str : %s\n", str);
+    printf("str address : %p\n", str);
+
+    // create a uint64_t pointer points to (uint64_t *)str
+    uint64_t *payload_ = (uint64_t *) str;
+    const char s[] = "She is a pig.";
+
+    printf("payload_ in uint64_t : %lx\n", *payload_);
+    printf("payload_ in string : %s\n", (char *) payload_);
+    printf("payload_ address : %p\n", payload_);
+
+    /*** use memcpy to copy 8 bytes string at one time.***/
+
+    memcpy(payload_, s, 8);
+
+    /*** not use memcpy to copy 8 bytes string at one time.***/
+
+    //*payload_ = *((uint64_t *) s);
+
+    /*** not use memcpy to copy 8 bytes string one by one.***/
+    /*
+    for (int i = 0; i < 8; i++) {
+        *((char *) payload_ + i) = *(s + i);
+    }
+    */
+
+    printf("payload_ in uint64_t after copy : %lx\n", *payload_);
+    printf("payload_ in string after copy : %s\n", (char *) payload_);
+    printf("payload_ address after copy : %p\n", payload_);
 
     return 0;
 }
