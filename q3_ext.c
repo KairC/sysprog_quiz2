@@ -55,7 +55,7 @@ int main()
     div_info_t M;                    // a struct where magic number stored.
 
     FILE *fp;
-    fp = fopen("output.txt", "w");
+    fp = fopen("q3_ext_output.txt", "w");
     assert(fp);
 
 
