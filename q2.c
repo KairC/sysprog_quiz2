@@ -10,8 +10,7 @@ uint8_t hexchar2val(uint8_t in)
 
 int main()
 {
+    printf("%d\n", hexchar2val('e'));
 
-  printf("%d\n", hexchar2val('e'));
-
-  return 0;
+    return 0;
 }
